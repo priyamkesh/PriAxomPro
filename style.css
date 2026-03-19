@@ -1,0 +1,232 @@
+/* style.css */
+
+/* --- Base & Reset Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #0d0e12; /* Deep dark background */
+    color: #e0e0e0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevents body scrolling */
+}
+
+/* --- Mobile Optimization --- */
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* --- Header Styling --- */
+header {
+    background: linear-gradient(90deg, #1c2e4a 0%, #15161c 100%); /* Blue gradient from image */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #2a2c3a;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    margin-bottom: 2px;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    vertical-align: super;
+    margin-left: 2px;
+    opacity: 0.8;
+}
+
+.author {
+    font-size: 0.85rem;
+    color: #a0a0b0;
+    opacity: 0.9;
+}
+
+.home-btn {
+    text-decoration: none;
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+}
+
+.home-btn:hover {
+    opacity: 1;
+    color: #ffffff;
+}
+
+/* --- Chat Area Styling --- */
+.chat-area {
+    flex: 1; /* Takes up all available space */
+    overflow-y: auto; /* Chat history is scrollable */
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    scroll-behavior: smooth; /* Smooth scrolling for new messages */
+}
+
+/* Scrollbar styling for chat area */
+.chat-area::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-area::-webkit-scrollbar-thumb {
+    background-color: #2a2c3a;
+    border-radius: 3px;
+}
+
+/* Message bubble styles */
+.message {
+    max-width: 75%;
+    display: flex;
+}
+
+.message.ai-message {
+    align-self: flex-start;
+}
+
+.message.user-message {
+    align-self: flex-end;
+}
+
+.bubble {
+    padding: 12px 18px;
+    border-radius: 18px;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.ai-message .bubble {
+    background-color: #2a2c3a; /* Dark grey for AI */
+    color: #e0e0e0;
+    border-bottom-left-radius: 4px;
+}
+
+.user-message .bubble {
+    background-color: #3b82f6; /* Blue for user */
+    color: #ffffff;
+    border-bottom-right-radius: 4px;
+}
+
+/* --- Input Bar Styling --- */
+.input-bar {
+    background-color: #121318;
+    padding: 10px 15px;
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #2a2c3a;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+/* Mobile landscape fix to hide input bar when keyboard is up */
+@media screen and (max-height: 450px) {
+    .input-bar {
+        position: static;
+    }
+}
+
+/* "Liquid Glass" Input Field */
+#user-input {
+    flex: 1;
+    padding: 12px 18px;
+    background: rgba(42, 44, 58, 0.4); /* Dark grey with transparency */
+    border: 1px solid rgba(160, 160, 176, 0.2);
+    border-radius: 25px; /* Pill shape */
+    color: #e0e0e0;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px); /* Semi-transparent effect */
+    box-shadow: 
+        inset 2px 2px 4px rgba(0, 0, 0, 0.3), /* Depth */
+        inset -1px -1px 2px rgba(255, 255, 255, 0.1); /* Subtle gloss */
+}
+
+#user-input:focus {
+    outline: none;
+    background: rgba(42, 44, 58, 0.6);
+    border-color: rgba(59, 130, 246, 0.6); /* Blue glow on focus */
+    box-shadow: 
+        inset 1px 1px 2px rgba(0, 0, 0, 0.2),
+        0 0 10px rgba(59, 130, 246, 0.2);
+}
+
+#user-input::placeholder {
+    color: #70707a;
+}
+
+/* "Liquid Glass" Send Button */
+#send-btn {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #1e3a8a 0%, #15161c 100%); /* Deep blue from image */
+    border: 1px solid rgba(160, 160, 176, 0.2);
+    border-radius: 50%; /* Circular */
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    
+    /* Complex box-shadow for gloss & depth like Liquid Glass image */
+    box-shadow: 
+        1px 2px 4px rgba(0, 0, 0, 0.4), /* Drop shadow */
+        inset -1px -1px 3px rgba(0, 0, 0, 0.3), /* Bottom depth */
+        inset 1px 1px 1px rgba(255, 255, 255, 0.1), /* Highlight edge */
+        inset 5px 5px 15px rgba(255, 255, 255, 0.05), /* Subtle gloss center */
+        inset -3px -3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Animation on hover and active states */
+#send-btn:hover {
+    transform: scale(1.05); /* Slight grow */
+    background: linear-gradient(135deg, #2563eb 0%, #1c2e4a 100%); /* Brighter blue */
+    box-shadow: 
+        0 5px 15px rgba(59, 130, 246, 0.3), /* Outer glow */
+        inset -1px -1px 3px rgba(0, 0, 0, 0.3),
+        inset 1px 1px 1px rgba(255, 255, 255, 0.2), /* Brighter highlight */
+        inset 5px 5px 20px rgba(255, 255, 255, 0.08); /* Brighter gloss */
+}
+
+#send-btn:active {
+    transform: scale(0.95); /* Shrink on click for liquid feel */
+    transition: all 0.1s ease;
+}
+
+#send-btn svg {
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease;
+}
+
+#send-btn:hover svg {
+    color: #ffffff;
+    transform: rotate(5deg) scale(1.1); /* Subtle tilt on hover */
+}
