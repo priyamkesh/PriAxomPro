@@ -1,0 +1,147 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #ffffff; /* FIXED: Full white background */
+    color: #333333; /* Darker text for white background */
+    height: 100dvh; /* Mobile viewport fix */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+}
+
+html, body { max-width: 100vw; overflow-x: hidden; }
+
+header {
+    background-color: #ffffff; /* FIXED: White sticky header */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky; /* FIXED: Sticky behavior */
+    top: 0;
+    z-index: 100;
+    flex-shrink: 0; /* CRITICAL MOBILE SCROLLING FIX */
+}
+
+.header-left { display: flex; flex-direction: column; }
+.title { font-size: 1.4rem; font-weight: 700; color: #000000; letter-spacing: -0.5px; margin-bottom: 2px; }
+.copyright { font-size: 0.9rem; vertical-align: super; margin-left: 2px; opacity: 0.8; }
+.author { font-size: 0.85rem; color: #666666; opacity: 0.9; }
+
+.home-btn {
+    text-decoration: none; color: #007bff; font-size: 0.95rem; font-weight: 500;
+    letter-spacing: 0.5px; opacity: 0.9; transition: opacity 0.2s ease;
+}
+.home-btn:hover { opacity: 1; color: #0056b3; }
+
+.chat-area {
+    flex: 1; /* Takes up all available space */
+    overflow-y: auto; /* FIXED: Full scrolling fix for middle area */
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    scroll-behavior: smooth; 
+}
+
+/* Clear sampling messages with JS initial clear */
+.chat-area::-webkit-scrollbar { width: 6px; }
+.chat-area::-webkit-scrollbar-thumb { background-color: #e0e0e0; border-radius: 3px; }
+
+.message { max-width: 85%; display: flex; animation: fadeIn 0.3s ease-out forwards; opacity: 0; transform: translateY(10px); }
+@keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+
+.message.ai-message { align-self: flex-start; }
+.message.user-message { align-self: flex-end; }
+
+/* The Flawless Extreme 3D Liquid Glass Redesign */
+.bubble { 
+    padding: 12px 18px; 
+    border-radius: 18px; 
+    line-height: 1.5; 
+    font-size: 0.95rem; 
+    word-wrap: break-word; 
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px); /* extreme glass effect */
+    border: 1px solid rgba(160, 160, 176, 0.2); /* glossy edge highlight */
+}
+
+/* Extreme depth shadows to simulate floating, perfect liquid glass from image */
+.ai-message .bubble { 
+    background: rgba(255, 255, 255, 0.2); /* white glass */
+    color: #333333; 
+    border-bottom-left-radius: 4px;
+    /* multi-layered box shadows for depth & gloss */
+    box-shadow: 
+        1px 2px 4px rgba(0, 0, 0, 0.2), /* extreme external drop shadow for floating effect */
+        inset -1px -1px 3px rgba(0, 0, 0, 0.1), /* bottom depth */
+        inset 1px 1px 1px rgba(255, 255, 255, 0.05), /* subtle edge highlight */
+        inset 5px 5px 15px rgba(255, 255, 255, 0.03), /* extreme gloss center */
+        inset -3px -3px 8px rgba(0, 0, 0, 0.08); /* bottom inner depth */
+}
+
+.user-message .bubble { 
+    background: rgba(59, 130, 246, 0.5); /* blue glass */
+    color: #ffffff; 
+    border-bottom-right-radius: 4px;
+    /* corresponding multi-layered blue shadows for floating effect */
+    box-shadow: 
+        1px 2px 4px rgba(0, 0, 0, 0.2), 
+        inset -1px -1px 3px rgba(0, 0, 0, 0.1), 
+        inset 1px 1px 1px rgba(255, 255, 255, 0.1), 
+        inset 5px 5px 15px rgba(255, 255, 255, 0.05),
+        inset -3px -3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.input-bar {
+    background-color: #f4f4f4; /* Subtle grey input area */
+    padding: 12px 15px;
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #e0e0e0;
+    flex-shrink: 0; /* CRITICAL MOBILE SCROLLING FIX */
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+}
+
+#user-input {
+    flex: 1; padding: 12px 18px;
+    background: rgba(42, 44, 58, 0.03); /* subtle dark background with transparency */
+    border: 1px solid rgba(160, 160, 176, 0.1);
+    border-radius: 25px; 
+    color: #333333; font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px); 
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.05), inset -1px -1px 1px rgba(255, 255, 255, 0.03); 
+    outline: none;
+}
+
+#user-input:focus {
+    background: rgba(42, 44, 58, 0.05);
+    border-color: rgba(59, 130, 246, 0.4); 
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.03), 0 0 8px rgba(59, 130, 246, 0.1);
+}
+#user-input::placeholder { color: #70707a; }
+
+#send-btn {
+    width: 48px; height: 48px; flex-shrink: 0;
+    background: linear-gradient(135deg, #1e3a8a 0%, #007bff 100%); /* blue to brighter blue */
+    border: 1px solid rgba(160, 160, 176, 0.1);
+    border-radius: 50%; 
+    color: #ffffff; cursor: pointer;
+    display: flex; justify-content: center; align-items: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    /* Complex box-shadow for gloss & depth matching liquid glass design */
+    box-shadow: 
+        1px 2px 4px rgba(0, 0, 0, 0.2), 
+        inset -1px -1px 3px rgba(0, 0, 0, 0.1), 
+        inset 1px 1px 1px rgba(255, 255, 255, 0.1), 
+        inset 5px 5px 15px rgba(255, 255, 255, 0.05), 
+        inset -3px -3px 8px rgba(0, 0, 0, 0.15);
+}
+
+#send-btn:active { transform: scale(0.9); transition: all 0.1s ease; }
+#send-btn svg { width: 20px; height: 20px; transition: all 0.3s ease; margin-left: -2px; }
+      
