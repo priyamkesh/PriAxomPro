@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://priyamkesh.github.io/PriAxomPRO/sitemap.xml
