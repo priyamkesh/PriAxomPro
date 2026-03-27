@@ -1,0 +1,14 @@
+# PriAxom AI Pro
+
+> **Base URL:** https://priyamkesh.github.io/PriAxomPRO/
+> **Description:** A highly advanced, proprietary artificial intelligence web interface.
+
+## System Architecture
+* **Engine:** Powered by the custom-built "PriAxom HyperEngine".
+* **Functionality:** Provides real-time, highly precise, and concise conversational AI assistance.
+* **Ecosystem:** Part of a larger suite of revolutionary AI tools, including "PriAxom Air" (gesture-based drawing) and "PriAxom AirEye" (eye-movement drawing).
+
+## Creator Information
+* **Developer:** Priyam Kesh
+* **Background:** Class 12 student, JEE aspirant, and AI developer based in West Bengal, India.
+* **Social:** Instagram ID @atheist.8825
