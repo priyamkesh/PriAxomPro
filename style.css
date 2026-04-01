@@ -1,0 +1,126 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { width: 100%; height: 100%; overflow: hidden; }
+
+body {
+    font-family: 'Poppins', system-ui, sans-serif;
+    /* User request: Transparent back color, showing background content */
+    background-color: rgba(0, 0, 0, 0); 
+    color: #ffffff; 
+    height: 100dvh; display: flex; flex-direction: column;
+}
+
+/* User Request: Smaller height and glass morphism */
+header {
+    background: rgba(10, 10, 12, 0.65); /* Increased transparency to show webpage content through */
+    backdrop-filter: blur(15px); /* Added glass morphism */
+    -webkit-backdrop-filter: blur(15px);
+    padding: 10px 18px; /* Reduced padding to make height smaller */
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Finer border */
+    flex-shrink: 0; width: 100%; z-index: 100;
+}
+
+.header-left { display: flex; flex-direction: column; gap: 0; } /* Tightened gaps */
+.title { font-size: 1.25rem; /* Slightly smaller text for header-smaller */ font-weight: 700; letter-spacing: -0.5px; margin-bottom: 0px; background: linear-gradient(90deg, #4285f4, #00d2ff, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0px 4px 15px rgba(66, 133, 244, 0.3); }
+.copyright { font-size: 0.8rem; vertical-align: super; margin-left: 1px; opacity: 0.8; -webkit-text-fill-color: #ffffff; }
+.author { font-size: 0.8rem; color: #888899; opacity: 0.9; font-weight: 500;}
+.home-btn { text-decoration: none; color: #00d2ff; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.5px; opacity: 0.9; transition: all 0.3s ease; }
+.home-btn:hover { opacity: 1; text-shadow: 0 0 10px rgba(0, 210, 255, 0.6); }
+
+/* User Request: Bigger chat area */
+.chat-area { flex: 1; overflow-y: auto; padding: 20px 15px; display: flex; flex-direction: column; gap: 20px; scroll-behavior: smooth; width: 100%; }
+.chat-area::-webkit-scrollbar { width: 4px; }
+.chat-area::-webkit-scrollbar-thumb { background-color: rgba(255,255,255,0.1); border-radius: 10px; }
+
+.message { max-width: 85%; display: flex; flex-direction: column; animation: slideUp 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; opacity: 0; transform: translateY(20px); }
+@keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+
+.message.ai-message { align-self: flex-start; }
+.message.user-message { align-self: flex-end; align-items: flex-end; }
+
+.bubble { padding: 14px 20px; border-radius: 20px; line-height: 1.6; font-size: 0.95rem; word-wrap: break-word; backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.ai-message .bubble { background: linear-gradient(135deg, rgba(30, 30, 40, 0.6) 0%, rgba(15, 15, 20, 0.8) 100%); color: #ffffff; border-bottom-left-radius: 4px; border-top: 1px solid rgba(255, 255, 255, 0.15); border-left: 1px solid rgba(255, 255, 255, 0.08); border-bottom: 1px solid rgba(0, 0, 0, 0.8); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.02); }
+.user-message .bubble { background: linear-gradient(135deg, rgba(255, 100, 50, 0.15) 0%, rgba(20, 20, 25, 0.7) 100%); color: #ffffff; border-bottom-right-radius: 4px; border-top: 1px solid rgba(255, 120, 50, 0.3); border-left: 1px solid rgba(255, 255, 255, 0.08); border-bottom: 1px solid rgba(0, 0, 0, 0.8); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255, 100, 50, 0.05); }
+
+/* Sent Image Styling */
+.sent-image { max-width: 200px; border-radius: 12px; margin-bottom: 8px; border: 1px solid rgba(255,255,255,0.2); }
+
+/* --- MARKDOWN AND MATH OVERRIDES --- */
+.bubble p { margin-bottom: 10px; }
+.bubble p:last-child { margin-bottom: 0; }
+.bubble ul, .bubble ol { margin-left: 20px; margin-bottom: 10px; }
+.bubble strong { color: #ffd700; font-weight: 600; }
+.katex-display { margin: 12px 0; overflow-x: auto; overflow-y: hidden; padding: 5px 0; text-align: left !important; }
+.katex { font-size: 1.15em; text-shadow: none; }
+
+/* Image Preview UI */
+.preview-container { display: none; padding: 10px 15px; background: rgba(10, 10, 12, 0.65); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-top: 1px solid rgba(255, 255, 255, 0.05); }
+.preview-box { position: relative; display: inline-block; }
+.preview-box img { height: 60px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); object-fit: cover; }
+#remove-image-btn { position: absolute; top: -5px; right: -5px; background: #ff4444; color: white; border: none; border-radius: 50%; width: 20px; height: 20px; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+/* User Request: Transparent and boxy part disappearing, only buttons */
+.input-bar {
+    background: rgba(10, 10, 12, 0.5); /* Higher transparency */
+    backdrop-filter: blur(12px); /* Lower blur to let background show more */
+    -webkit-backdrop-filter: blur(12px);
+    padding: 12px 15px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 12px; /* Fixed button gaps */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    flex-shrink: 0; width: 100%;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+    position: relative;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.4); /* subtle glow from bottom */
+}
+
+.attach-wrapper { position: relative; }
+#attach-btn {
+    width: 48px; height: 48px; flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: #ffffff; cursor: pointer;
+    display: flex; justify-content: center; align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+#attach-btn:hover { background: rgba(255, 255, 255, 0.12); transform: scale(1.05); }
+#attach-btn svg { width: 22px; height: 22px; }
+
+.attach-menu { display: none; position: absolute; bottom: 65px; left: 0; background: rgba(20, 20, 25, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 8px; flex-direction: column; gap: 5px; box-shadow: 0 10px 25px rgba(0,0,0,0.8); width: 140px; z-index: 200;}
+.attach-menu button { background: none; border: none; color: white; padding: 12px; text-align: left; border-radius: 8px; cursor: pointer; font-family: 'Poppins', sans-serif; font-size: 0.95rem; transition: background 0.2s; }
+.attach-menu button:hover { background: rgba(255,255,255,0.1); }
+
+/* Floating User Input Field */
+#user-input {
+    flex: 1; padding: 16px 24px;
+    background: rgba(255, 255, 255, 0.05); /* User request: transparent */
+    backdrop-filter: blur(20px); /* User request: glass morphism for floating field */
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Thin border for glass effect */
+    border-radius: 35px;
+    color: #ffffff; font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0,0,0,0.4); /* floating shadows */
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    min-width: 0;
+}
+#user-input:focus { background: rgba(255, 255, 255, 0.08); border-color: rgba(0, 210, 255, 0.6); box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 210, 255, 0.3); }
+#user-input::placeholder { color: #888899; }
+
+#send-btn {
+    width: 52px; height: 52px; flex-shrink: 0;
+    background: linear-gradient(145deg, #1e58ff, #0037c5);
+    border: none;
+    border-radius: 18px; /* Boxy but refined */
+    color: #ffffff; cursor: pointer;
+    display: flex; justify-content: center; align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 85, 255, 0.4), inset 2px 2px 5px rgba(255,255,255,0.3); /* Subtle 3D shine and shadow */
+}
+#send-btn:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 12px 25px rgba(0, 85, 255, 0.6); }
+#send-btn svg { width: 24px; height: 24px; }
+                
