@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    
+    <title>PriAxom AI Pro | By Priyam Kesh</title>
+    <meta name="description" content="PriAxom AI Pro (PriAxom Pro) is an advanced, proprietary artificial intelligence developed entirely by Priyam Kesh.">
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <h1 class="title">PriAxom AI Pro<span class="copyright">©</span></h1>
+            <p class="author">By, Priyam Kesh</p>
+        </div>
+        <div class="header-right">
+            <a href="https://priyamkesh.github.io/PriAxomPRO/" class="home-btn">HOME</a>
+        </div>
+    </header>
+
+    <main class="chat-area" id="chat-history"></main>
+
+    <div class="preview-container" id="preview-container">
+        <div class="preview-box">
+            <img id="image-preview" src="" alt="Preview">
+            <button id="remove-image-btn">&times;</button>
+        </div>
+    </div>
+
+    <footer class="input-bar">
+        <div class="attach-wrapper">
+            <button id="attach-btn" aria-label="Attach">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            </button>
+            <div class="attach-menu" id="attach-menu">
+                <button id="camera-option">📸 Camera</button>
+                <button id="gallery-option">🖼️ Gallery</button>
+            </div>
+        </div>
+        
+        <input type="file" id="camera-input" accept="image/*" capture="environment" hidden>
+        <input type="file" id="gallery-input" accept="image/*" hidden>
+
+        <div class="input-wrapper">
+            <input type="text" id="user-input" placeholder="Message PriAxom AI Pro..." autocomplete="off">
+            <button id="mic-btn" aria-label="Voice Input">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+            </button>
+        </div>
+
+        <button id="send-btn" aria-label="Send">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="19" x2="12" y2="5"></line>
+                <polyline points="5 12 12 5 19 12"></polyline>
+            </svg>
+        </button>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
