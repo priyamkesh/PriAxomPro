@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PriAxom AI — Feedback</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Syne:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh; display: grid; place-items: center;
+      font-family: 'Syne', sans-serif; color: #e8e8f2;
+      background: radial-gradient(ellipse at 15% 20%, #7f5af088 0%, transparent 55%),
+                  radial-gradient(ellipse at 85% 80%, #ff2d8766 0%, transparent 50%),
+                  radial-gradient(ellipse at 80% 10%, #00ffe755 0%, transparent 45%),
+                  #0d0d1a;
+    }
+    .card {
+      width: min(480px, 92vw); padding: 40px;
+      background: rgba(255,255,255,.04); border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.1);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 8px 48px #0007, 0 0 0 1px #7f5af033;
+    }
+    h1 {
+      font-family: 'Orbitron', sans-serif; font-size: 22px; letter-spacing: 2px;
+      background: linear-gradient(90deg, #00ffe7, #7f5af0, #ff2d87);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 6px;
+    }
+    p.sub { font-size: 13px; color: #e8e8f266; margin-bottom: 28px; }
+    label { display: block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #00ffe7; margin-bottom: 6px; margin-top: 16px; }
+    input, textarea {
+      width: 100%; padding: 11px 14px; border-radius: 10px;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+      color: #e8e8f2; font-family: 'Syne', sans-serif; font-size: 14px; outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    input:focus, textarea:focus {
+      border-color: #7f5af0;
+      box-shadow: 0 0 0 3px #7f5af033;
+    }
+    textarea { resize: vertical; min-height: 110px; }
+    input::placeholder, textarea::placeholder { color: #e8e8f233; }
+    button {
+      width: 100%; margin-top: 24px; padding: 13px;
+      border: none; border-radius: 12px; cursor: pointer;
+      font-family: 'Orbitron', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; color: #fff;
+      background: linear-gradient(135deg, #7f5af0, #ff2d87);
+      box-shadow: 0 4px 24px #7f5af055;
+      transition: transform .15s, box-shadow .15s;
+    }
+    button:hover { transform: translateY(-2px); box-shadow: 0 8px 32px #7f5af077; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>PriAxom AI</h1>
+    <p class="sub">Share your feedback — every word shapes the intelligence.</p>
+    <label>Name</label>
+    <input id="n" type="text" placeholder="Your name" />
+    <label>Email</label>
+    <input id="e" type="email" placeholder="you@example.com" />
+    <label>Feedback</label>
+    <textarea id="f" placeholder="Ideas, bugs, thoughts..."></textarea>
+    <button onclick="
+      const n=document.getElementById('n').value.trim(),
+            e=document.getElementById('e').value.trim(),
+            f=document.getElementById('f').value.trim();
+      if(!n||!e||!f) return alert('Please fill all fields.');
+      window.location.href='mailto:priaxom.ai@outlook.com?subject='+encodeURIComponent('PriAxom Feedback — '+n)+'&body='+encodeURIComponent('Name: '+n+'\nEmail: '+e+'\n\nFeedback:\n'+f);
+    ">SEND FEEDBACK →</button>
+  </div>
+</body>
+</html>
