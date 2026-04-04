@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developer — PriAxom AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Syne:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Syne', sans-serif; color: #e8e8f2;
+      background: radial-gradient(ellipse at 10% 15%, #7f5af088 0%, transparent 50%),
+                  radial-gradient(ellipse at 90% 85%, #ff2d8766 0%, transparent 50%),
+                  radial-gradient(ellipse at 85% 10%, #00ffe755 0%, transparent 45%),
+                  #0d0d1a;
+      min-height: 100vh; padding: 60px 20px;
+    }
+    .wrap { max-width: 700px; margin: 0 auto; }
+
+    /* Logo */
+    .logo {
+      font-family: 'Orbitron', sans-serif; font-size: 24px; letter-spacing: 2px;
+      background: linear-gradient(90deg, #00ffe7, #7f5af0, #ff2d87);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 4px;
+    }
+    .logo-sub { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #e8e8f244; margin-bottom: 44px; }
+
+    /* Profile card */
+    .profile {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09);
+      border-radius: 20px; padding: 36px 30px; margin-bottom: 16px;
+      backdrop-filter: blur(16px); box-shadow: 0 6px 32px #0005;
+      display: flex; gap: 28px; align-items: flex-start;
+    }
+    .avatar {
+      width: 110px; height: 110px; border-radius: 16px; flex-shrink: 0;
+      object-fit: cover; object-position: center;
+      border: 2px solid rgba(255,255,255,.12);
+      box-shadow: 0 0 24px #7f5af055, 0 0 8px #00ffe733;
+    }
+    .profile-info { flex: 1; }
+    .profile-name {
+      font-family: 'Orbitron', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: 1px;
+      background: linear-gradient(90deg, #fff, #00ffe7);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 4px;
+    }
+    .profile-role { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #7f5af0; margin-bottom: 14px; }
+    .profile-info p { font-size: 13.5px; line-height: 1.8; color: #e8e8f2aa; }
+
+    /* Generic section */
+    .section {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09);
+      border-radius: 16px; padding: 28px 30px; margin-bottom: 16px;
+      backdrop-filter: blur(16px); box-shadow: 0 6px 28px #0004;
+    }
+    h2 {
+      font-family: 'Orbitron', sans-serif; font-size: 12px; letter-spacing: 2px;
+      color: #00ffe7; text-transform: uppercase; margin-bottom: 14px;
+    }
+    p { font-size: 14px; line-height: 1.85; color: #e8e8f2bb; margin-bottom: 10px; }
+    p:last-child { margin-bottom: 0; }
+    ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    li { font-size: 14px; color: #e8e8f2bb; padding-left: 18px; position: relative; line-height: 1.6; }
+    li::before {
+      content: ''; position: absolute; left: 0; top: 9px;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: linear-gradient(135deg, #7f5af0, #00ffe7);
+    }
+    li strong { color: #e8e8f2; font-weight: 600; }
+
+    /* Quote */
+    .quote {
+      text-align: center; padding: 28px 32px; margin-bottom: 16px;
+      border: 1px solid rgba(255,255,255,.09); border-radius: 16px;
+      background: rgba(255,255,255,.03);
+    }
+    .quote p {
+      font-size: 15px; font-style: italic; line-height: 1.9;
+      background: linear-gradient(90deg, #e8e8f2, #7f5af0, #00ffe7);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin: 0;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center; padding: 22px;
+      border: 1px solid rgba(255,255,255,.09); border-radius: 16px;
+      font-family: 'Orbitron', sans-serif; font-size: 12px; letter-spacing: 1.5px;
+      background: rgba(255,255,255,.03); color: #e8e8f255;
+    }
+    .footer span {
+      background: linear-gradient(90deg, #7f5af0, #ff2d87);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    @media (max-width: 480px) {
+      .profile { flex-direction: column; align-items: center; text-align: center; }
+      .avatar { width: 120px; height: 120px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="logo">PriAxom AI</div>
+    <p class="logo-sub">Developer</p>
+
+    <!-- Profile -->
+    <div class="profile">
+      <img class="avatar" src="me.png" alt="Priyam Kesh" />
+      <div class="profile-info">
+        <div class="profile-name">Priyam Kesh</div>
+        <div class="profile-role">Founder & Developer</div>
+        <p>An emerging innovator driven by a deep passion for artificial intelligence, software engineering, and next-generation technology. Currently a Class 12 student and dedicated JEE aspirant, Priyam combines academic rigor with creative exploration across AI, Physics, and Literature.</p>
+      </div>
+    </div>
+
+    <!-- About -->
+    <div class="section">
+      <h2>About</h2>
+      <p>Beyond technical development, Priyam is an avid reader and writer with 300+ books read across religions, politics, AI, machine learning, and literature — building a broad, analytical perspective on both technology and human thought.</p>
+      <p>He is also the author of multiple literary works, including:</p>
+      <ul style="margin-top:10px;">
+        <li><strong>"Mrityukalnam"</strong> — a deep, psychological and investigative narrative</li>
+        <li><strong>"Bouddha Tantra Classified"</strong> — an exploration of philosophical and esoteric themes</li>
+      </ul>
+      <p style="margin-top:12px;">This rare combination of technical expertise and literary depth enables him to design AI systems that are not only functional but also intellectually rich and context-aware.</p>
+    </div>
+
+    <!-- Focus Areas -->
+    <div class="section">
+      <h2>Core Focus Areas</h2>
+      <ul>
+        <li>Artificial Intelligence & Machine Learning</li>
+        <li>Physics & Analytical Problem Solving</li>
+        <li>Literature & Creative Writing</li>
+        <li>Web Development & System Design</li>
+        <li>Human-AI Interaction</li>
+      </ul>
+    </div>
+
+    <!-- Vision -->
+    <div class="section">
+      <h2>Vision as a Developer</h2>
+      <p>To engineer intelligent systems that seamlessly integrate into everyday life — enhancing productivity, creativity, and decision-making through advanced AI, while preserving depth, clarity, and human-like understanding.</p>
+    </div>
+
+    <!-- Quote -->
+    <div class="quote">
+      <p>"Innovation is not just about building technology.<br>It's about redefining intelligence itself."</p>
+    </div>
+
+    <div class="footer">
+      <span>PriAxom AI</span> — Designed & Developed by Priyam Kesh
+    </div>
+
+  </div>
+</body>
+</html>
