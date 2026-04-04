@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — PriAxom AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Syne:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Syne', sans-serif; color: #e8e8f2;
+      background: radial-gradient(ellipse at 10% 15%, #7f5af088 0%, transparent 50%),
+                  radial-gradient(ellipse at 90% 85%, #ff2d8766 0%, transparent 50%),
+                  radial-gradient(ellipse at 85% 10%, #00ffe755 0%, transparent 45%),
+                  #0d0d1a;
+      min-height: 100vh; padding: 60px 20px;
+    }
+    .wrap { max-width: 700px; margin: 0 auto; }
+
+    /* Logo */
+    .logo {
+      font-family: 'Orbitron', sans-serif; font-size: 26px; letter-spacing: 2px; font-weight: 700;
+      background: linear-gradient(90deg, #00ffe7, #7f5af0, #ff2d87);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 4px;
+    }
+    .logo-sub { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #e8e8f244; margin-bottom: 48px; }
+
+    /* Cards */
+    .card {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09);
+      border-radius: 18px; padding: 32px; margin-bottom: 20px;
+      backdrop-filter: blur(16px); box-shadow: 0 6px 32px #0005;
+    }
+    h2 {
+      font-family: 'Orbitron', sans-serif; font-size: 14px; letter-spacing: 2px;
+      color: #00ffe7; text-transform: uppercase; margin-bottom: 16px;
+    }
+    p { font-size: 14.5px; line-height: 1.8; color: #e8e8f2cc; margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+
+    /* Principles */
+    .pills { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+    .pill {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: rgba(255,255,255,.04); border-radius: 10px; padding: 12px 16px;
+      border: 1px solid rgba(255,255,255,.07);
+    }
+    .pill-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+    .pill-title { font-weight: 600; font-size: 14px; color: #e8e8f2; }
+    .pill-desc  { font-size: 13px; color: #e8e8f266; }
+
+    /* Closing quote */
+    .quote {
+      text-align: center; padding: 32px;
+      border: 1px solid rgba(255,255,255,.09); border-radius: 18px;
+      background: rgba(255,255,255,.03);
+    }
+    .quote p { font-size: 15px; font-style: italic; line-height: 2; color: #e8e8f299; margin: 0; }
+    .quote strong {
+      font-style: normal; font-weight: 600;
+      background: linear-gradient(90deg, #7f5af0, #ff2d87);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="logo">PriAxom AI</div>
+    <p class="logo-sub">About Us</p>
+
+    <div class="card">
+      <h2>Who We Are</h2>
+      <p>In a world driven by rapid technological evolution, PriAxom AI stands as a symbol of precision, intelligence, and refined innovation. It is not merely a chatbot — it is a thoughtfully engineered AI ecosystem designed to elevate the way humans interact with technology.</p>
+      <p>PriAxom AI is built on the vision of creating a seamless bridge between human curiosity and machine intelligence. Every response is crafted to be fast, context-aware, and deeply insightful, ensuring that users experience not just answers, but meaningful understanding.</p>
+      <p>From assisting with complex problem-solving and coding to enhancing productivity, learning, and creativity, PriAxom AI combines advanced AI capabilities with a clean, modern, and premium interface — delivering an experience that feels both powerful and effortless.</p>
+    </div>
+
+    <div class="card">
+      <h2>Our Principles</h2>
+      <div class="pills">
+        <div class="pill">
+          <div class="pill-dot" style="background:#00ffe7;box-shadow:0 0 6px #00ffe7;"></div>
+          <div><div class="pill-title">Intelligence</div><div class="pill-desc">Delivering accurate, thoughtful, and adaptive responses.</div></div>
+        </div>
+        <div class="pill">
+          <div class="pill-dot" style="background:#7f5af0;box-shadow:0 0 6px #7f5af0;"></div>
+          <div><div class="pill-title">Efficiency</div><div class="pill-desc">Ensuring speed without compromising depth.</div></div>
+        </div>
+        <div class="pill">
+          <div class="pill-dot" style="background:#ff2d87;box-shadow:0 0 6px #ff2d87;"></div>
+          <div><div class="pill-title">Experience</div><div class="pill-desc">Maintaining a sleek, intuitive, and premium interaction.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>The Visionary</h2>
+      <p>PriAxom AI is founded by <strong style="color:#e8e8f2;">Priyam Kesh</strong>, a young and ambitious innovator driven by a deep passion for technology, artificial intelligence, and future-focused solutions.</p>
+      <p>His vision for PriAxom AI stems from a desire to create something beyond ordinary — a system that is intelligent, accessible, and capable of making a real impact. Despite being at an early stage in his journey, Priyam has independently conceptualized and developed digital platforms, including AI-based systems and web technologies.</p>
+      <p>PriAxom AI reflects his mindset — bold, evolving, and uncompromising in quality.</p>
+    </div>
+
+    <div class="card">
+      <h2>Mission</h2>
+      <p>To redefine everyday interaction with AI by delivering a system that is not only powerful but also intuitive, elegant, and accessible to all.</p>
+      <h2 style="margin-top:24px;">Vision</h2>
+      <p>To build a next-generation AI platform that grows with its users — becoming smarter, more personalized, and more impactful over time.</p>
+    </div>
+
+    <div class="quote">
+      <p>PriAxom AI is not just a tool.<br>It is an experience.<br><strong>It is intelligence, refined.</strong></p>
+    </div>
+
+  </div>
+</body>
+</html>
